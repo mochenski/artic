@@ -2,5 +2,8 @@
 
 This is a personal project created to study the basics a Dashboard. I will try to make the code simple and easy to understand.
 
-- [ ] Project Start
-    - [ ]  awdawd   
+The idea is to achieve **at least** the following items.
+    - Login form
+    - General CRUD using laravel
+    - General layout using Vue.js
+
