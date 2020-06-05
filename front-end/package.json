@@ -1,7 +1,7 @@
 {
   "name": "front-end",
   "version": "1.0.0",
-  "description": "My classy Nuxt.js project",
+  "description": "My front-end project",
   "author": "lemochenskif",
   "private": true,
   "scripts": {
