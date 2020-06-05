@@ -4,7 +4,7 @@ This is a personal project created to study the basics of a Dashboard. I will tr
 
 The idea is to achieve **at least** the following items.
 
-    - Login form
-    - General CRUD using laravel
-    - General layout using Vue.js
+ - [ ] Login form
+ - [ ] General CRUD using laravel
+ - [ ] General layout using Vue.js
 
