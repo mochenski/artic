@@ -4,7 +4,8 @@ This is a personal project created to study the basics of a Dashboard. I will tr
 
 The idea is to achieve **at least** the following items.
 
- - [ ] Login form
- - [ ] General CRUD using laravel
- - [ ] General layout using Vue.js
+ - [x] ![Progress](https://progress-bar.dev/100/) Project using Laravel as back-end and Vue as front-end 
+ - [ ] ![Progress](https://progress-bar.dev/10/) Index of a personal page using Vue.js
+ - [ ] ![Progress](https://progress-bar.dev/0/) Blog Structure using Laravel and Vue.js
+ - [ ] ![Progress](https://progress-bar.dev/0/) Dashboard to controll Blog (Login, post CRUD)
 
