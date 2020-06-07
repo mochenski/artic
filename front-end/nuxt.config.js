@@ -17,7 +17,34 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://use.fontawesome.com/releases/v5.0.13/css/all.css'
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css'
+      },
+      {
+        rel: 'stylesheet',
+        type: 'text/css',
+        href:
+          'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css'
+      }
+    ],
+    scripts: [
+      { src: 'https://code.jquery.com/jquery-3.5.1.slim.min.js' },
+      {
+        src:
+          'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'
+      },
+      {
+        src:
+          'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js'
+      }
+    ]
   },
   /*
    ** Customize the progress-bar color
@@ -36,7 +63,7 @@ export default {
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module',
+    // '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify'
   ],
   /*
@@ -66,7 +93,7 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           primary: colors.blue.darken2,
@@ -87,6 +114,6 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) { }
   }
 }
