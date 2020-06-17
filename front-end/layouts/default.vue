@@ -3,34 +3,36 @@
     <nav-bar></nav-bar>
     <nav class="nav-menu d-flex flex-column justify-content-center">
       <ul>
-        <li @mouseover="displaySpan = true">
+        <li @mouseenter="show" @mouseleave="hide" ref="link">
           <nuxt-link to="/">
             <i class="bx bx-home"></i>
-            <span v-if="displaySpan">Home</span>
+            <span>Home</span>
           </nuxt-link>
         </li>
-        <li>
+        <li @mouseenter="displaySpan = true" @mouseleave="displaySpan = false">
           <nuxt-link to="/">
             <i class="bx bx-user"></i>
-            <!-- <span>About</span> -->
+            <transition>
+              <span v-if="displaySpan">About</span>
+            </transition>
           </nuxt-link>
         </li>
         <li>
           <nuxt-link to="/">
             <i class="bx bx-bar-chart"></i>
-            <!-- <span>Skills</span> -->
+            <span>Skills</span>
           </nuxt-link>
         </li>
         <li>
           <nuxt-link to="/">
             <i class="bx bx-file-blank"></i>
-            <!-- <span>Resume</span> -->
+            <span>Resume</span>
           </nuxt-link>
         </li>
         <li>
           <nuxt-link to="/">
             <i class="bx bx-envelope"></i>
-            <!-- <span>Contact</span> -->
+            <span>Contact</span>
           </nuxt-link>
         </li>
       </ul>
@@ -47,7 +49,24 @@ export default {
   },
   data() {
     return {
-      displaySpan: false
+      displaySpan: false,
+      fullWidth: 0
+    }
+  },
+
+  methods: {
+    show(event) {
+      const normalWidth = this.$refs.link.children[0].clientWidth
+      console.log(normalWidth)
+      this.fullWidth = this.$refs.link.children[0].clientWidth
+      // this.$refs.link.children[0].style.width = 'normalWidth'
+      this.$refs.link.children[0].children[1].style.display = 'block'
+      // this.$refs.link.children[0].style.width = 'fullWidth
+    },
+
+    hide(event) {
+      this.$refs.link.children[0].children[1].style.display = 'none'
+      // this.displaySpan = false
     }
   }
 }
@@ -62,12 +81,17 @@ export default {
   z-index: 99;
   font-size: 20px;
   padding: 15px;
-  overflow-y: auto;
+}
+
+.nav-menu span {
+  position: inherit;
+  transition: 0.3s;
+  transition-property: width;
 }
 
 .nav-menu li {
+  position: relative;
   list-style: none;
-  overflow: auto;
 }
 
 .nav-menu a {
@@ -80,13 +104,16 @@ export default {
   border-radius: 50rem !important;
   background-color: whitesmoke;
   color: #0563bb;
-  transition: 1000ms;
-  overflow-y: auto;
+  overflow: hidden;
+  /* width: 0 */
+  transition-property: width;
+  transition: 0.3s;
 }
 
 .nav-menu a:hover {
+  transition-property: width;
   background-color: #0563bb;
   color: whitesmoke;
-  transition: 1000ms;
+  /* width: 200px; */
 }
 </style>
