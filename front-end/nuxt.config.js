@@ -26,23 +26,6 @@ export default {
       {
         rel: 'stylesheet',
         href: 'https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css'
-      },
-      {
-        rel: 'stylesheet',
-        type: 'text/css',
-        href:
-          'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css'
-      }
-    ],
-    scripts: [
-      { src: 'https://code.jquery.com/jquery-3.5.1.slim.min.js' },
-      {
-        src:
-          'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'
-      },
-      {
-        src:
-          'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js'
       }
     ]
   },
@@ -114,6 +97,6 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) { }
+    extend(config, ctx) {}
   }
 }
