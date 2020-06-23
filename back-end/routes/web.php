@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/api/teste', function () {
-    return ['somenthing', 'dope'];
+
+Route::get('/blog', function () {
+    return view('blog');
 });
