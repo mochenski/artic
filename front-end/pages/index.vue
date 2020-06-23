@@ -1,5 +1,7 @@
 <template>
-  <div class="d-inline-flex flex-column my-auto align-center justify-space-around">
+  <div
+    class="d-inline-flex flex-column my-auto align-center justify-space-around"
+  >
     <h1>Welcome to Landing page</h1>
     <div class="pa-10">
       <nuxt-link to="dashboard/login">
@@ -10,5 +12,10 @@
 </template>
 
 <script>
-export default {}
+import Clients from '../components/passport/Clients'
+export default {
+  components: {
+    Clients
+  }
+}
 </script>
