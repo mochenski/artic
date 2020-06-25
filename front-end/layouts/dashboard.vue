@@ -37,17 +37,15 @@
       <template v-slot:append>
         <v-list dense nav rounded class="py-1">
           <v-divider class="py-1"></v-divider>
-          <nuxt-link to="dashboard/login">
-            <v-list-item link>
-              <v-list-item-icon>
-                <v-icon>mdi-logout</v-icon>
-              </v-list-item-icon>
+          <v-list-item @click="$auth.logout()" link>
+            <v-list-item-icon>
+              <v-icon>mdi-logout</v-icon>
+            </v-list-item-icon>
 
-              <v-list-item-content>
-                <v-list-item-title>Logout</v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </nuxt-link>
+            <v-list-item-content>
+              <v-list-item-title>Logout</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
         </v-list>
       </template>
     </v-navigation-drawer>
@@ -71,6 +69,10 @@ export default {
       miniVariant: true,
       expandOnHover: true
     }
+  },
+
+  methods: {
+    async userLogout() {}
   }
 }
 </script>

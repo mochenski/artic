@@ -4,7 +4,8 @@
   >
     <h1>Welcome to Landing page</h1>
     <div class="pa-10">
-      <nuxt-link to="dashboard/login">
+      <v-btn v-if="$auth.loggedIn" @click="$auth.logout()">Logout</v-btn>
+      <nuxt-link to="/login" v-else>
         <v-btn>Login</v-btn>
       </nuxt-link>
     </div>
