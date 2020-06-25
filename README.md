@@ -6,7 +6,7 @@ The idea is to achieve **at least** the following items.
 
  - [x] ![Progress](https://progress-bar.dev/100/) Project Setup using Laravel as back-end and Nuxt as front-end 
  - [x] ![Progress](https://progress-bar.dev/100/) Auth using Laravel passport
- - [ ] ![Progress](https://progress-bar.dev/35/) Login and Register using Nuxt
- - [ ] ![Progress](https://progress-bar.dev/0/) Articles index using Laravel and Vue.js
- - [ ] ![Progress](https://progress-bar.dev/0/) Dashboard to controll Articles (Login, post CRUD)
+ - [x] ![Progress](https://progress-bar.dev/100/) Login and Register using Nuxt
+ - [ ] ![Progress](https://progress-bar.dev/0/) Articles controller "CRUD" Laravel
+ - [ ] ![Progress](https://progress-bar.dev/0/) Blog functionality (Laravel relationships)
 
