@@ -14,11 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// User
-
+// Auth User
 Route::post('/login', 'api\UserController@login');
 Route::post('/register', 'api\UserController@register');
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Middleware for athorized users
+Route::middleware('auth:api')->group(function () {
+
+    // User
+    Route::get('/user', 'api\UserController@user');
+    Route::post('/logout', 'api\UserController@logout');
 });
