@@ -18,10 +18,18 @@ use Illuminate\Support\Facades\Route;
 Route::post('/login', 'api\UserController@login');
 Route::post('/register', 'api\UserController@register');
 
+// Articles
+Route::get('/articles', 'api\ArticleController@index');
+
 // Middleware for athorized users
 Route::middleware('auth:api')->group(function () {
 
     // User
     Route::get('/user', 'api\UserController@user');
     Route::post('/logout', 'api\UserController@logout');
+
+    // Articles
+    Route::post('/articles/create', 'api\ArticleController@store');
+    // delete 
+    // update 
 });
