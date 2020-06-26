@@ -44,7 +44,7 @@ class ArticleController extends Controller
         $article = Article::create($newArticle);
 
         return response([
-            'message' => 'Successful create new article',
+            'message' => 'Created new article',
             'article' => $article
         ], 200);
     }
@@ -52,12 +52,17 @@ class ArticleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article)
+    public function show($slug)
     {
-        //
+        $article = Article::where('slug', $slug)->first();
+        if (!$article)
+            return response([
+                'message' => "Article {$slug} not found"
+            ], 400);
+
+        return response($article, 200);
     }
 
     /**
@@ -78,8 +83,18 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $article)
+    public function destroy($slug)
     {
-        //
+        $article = Article::where('slug', $slug)->first();
+        if (!$article)
+            return response([
+                'message' => "Article {$slug} not found"
+            ], 400);
+
+        $article->delete();
+
+        return response([
+            'message' => 'Article destroyed'
+        ], 200);
     }
 }

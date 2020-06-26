@@ -20,6 +20,7 @@ Route::post('/register', 'api\UserController@register');
 
 // Articles
 Route::get('/articles', 'api\ArticleController@index');
+Route::get('/articles/{slug}', 'api\ArticleController@show');
 
 // Middleware for athorized users
 Route::middleware('auth:api')->group(function () {
@@ -29,7 +30,7 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/logout', 'api\UserController@logout');
 
     // Articles
-    Route::post('/articles/create', 'api\ArticleController@store');
-    // delete 
+    Route::post('/articles', 'api\ArticleController@store');
+    Route::delete('/articles/{slug}', 'api\ArticleController@destroy');
     // update 
 });
