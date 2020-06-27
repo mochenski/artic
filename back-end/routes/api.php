@@ -31,6 +31,6 @@ Route::middleware('auth:api')->group(function () {
 
     // Articles
     Route::post('/articles', 'api\ArticleController@store');
+    Route::put('/articles/{slug}', 'api\ArticleController@update');
     Route::delete('/articles/{slug}', 'api\ArticleController@destroy');
-    // update 
 });
