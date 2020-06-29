@@ -12,7 +12,7 @@ class Article extends Model
      * @var array
      */
     protected $fillable = [
-        'slug', 'body', 'title', 'excerpt'
+        'slug', 'body', 'title', 'excerpt', 'user_id', 'published_at'
     ];
 
     public function author()

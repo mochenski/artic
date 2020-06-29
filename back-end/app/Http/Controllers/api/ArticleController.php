@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Article;
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -30,6 +31,7 @@ class ArticleController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|min:10|max:255',
+            'user_id' => 'required',
             'slug' => 'required|unique:articles,slug|min:10|max:255',
             'excerpt' => 'required|min:10|max:255',
             'body' => 'required|min:10'
@@ -41,7 +43,16 @@ class ArticleController extends Controller
                 'error' => $validator->errors()
             ], 400);
 
-        $newArticle = $request->only('slug', 'title', 'excerpt', 'body');
+        $user = User::find($request['user_id']);
+        if ($user == '')
+            return response([
+                'message' => 'Failed to create article due to invalid fields',
+                'error' => [
+                    'user_id' => ['The user_id is not valid'],
+                ]
+            ], 400);
+
+        $newArticle = $request->only('slug', 'title', 'excerpt', 'body', 'user_id');
         $article = Article::create($newArticle);
 
         return response([
