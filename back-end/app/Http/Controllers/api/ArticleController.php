@@ -18,7 +18,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return response(Article::all());
+        return response(Article::with('tags')->get());
     }
 
     /**
@@ -31,10 +31,10 @@ class ArticleController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|min:10|max:255',
-            'user_id' => 'required',
             'slug' => 'required|unique:articles,slug|min:10|max:255',
             'excerpt' => 'required|min:10|max:255',
-            'body' => 'required|min:10'
+            'body' => 'required|min:10',
+            'tags' => 'exists:tags,id'
         ]);
 
         if ($validator->fails())
@@ -43,21 +43,24 @@ class ArticleController extends Controller
                 'error' => $validator->errors()
             ], 400);
 
-        $user = User::find($request['user_id']);
+        $user = auth()->id();
         if ($user == '')
             return response([
-                'message' => 'Failed to create article due to invalid fields',
+                'message' => 'Failed to create article, user not found',
                 'error' => [
                     'user_id' => ['The user_id is not valid'],
                 ]
             ], 400);
 
-        $newArticle = $request->only('slug', 'title', 'excerpt', 'body', 'user_id');
+        $newArticle = $request->only('slug', 'title', 'excerpt', 'body');
+        $newArticle['user_id'] = $user;
         $article = Article::create($newArticle);
+        $article->tags()->attach($request['tags']);
+        $article->tags;
 
         return response([
             'message' => 'Created new article',
-            'article' => $article
+            'article' => $article,
         ], 200);
     }
 
@@ -69,6 +72,7 @@ class ArticleController extends Controller
     public function show($slug)
     {
         $article = Article::where('slug', $slug)->first();
+        $article->tags;
 
         if (!$article)
             return response([

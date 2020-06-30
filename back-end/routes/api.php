@@ -22,6 +22,12 @@ Route::post('/register', 'api\UserController@register');
 Route::get('/articles', 'api\ArticleController@index');
 Route::get('/articles/{slug}', 'api\ArticleController@show');
 
+// TEST tags
+Route::get('/tags', 'api\TagController@index');
+Route::post('/tags', 'api\TagController@store');
+Route::put('/tags/{name}', 'api\TagController@update');
+Route::delete('/tags/{name}', 'api\TagController@destroy');
+
 // Middleware for athorized users
 Route::middleware('auth:api')->group(function () {
 
@@ -33,4 +39,6 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/articles', 'api\ArticleController@store');
     Route::put('/articles/{slug}', 'api\ArticleController@update');
     Route::delete('/articles/{slug}', 'api\ArticleController@destroy');
+
+    // Tags
 });
