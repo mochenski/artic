@@ -24,6 +24,7 @@ Route::get('/articles/{slug}', 'api\ArticleController@show');
 
 // TEST tags
 Route::get('/tags', 'api\TagController@index');
+Route::get('/tags/{name}', 'api\TagController@show');
 Route::post('/tags', 'api\TagController@store');
 Route::put('/tags/{name}', 'api\TagController@update');
 Route::delete('/tags/{name}', 'api\TagController@destroy');

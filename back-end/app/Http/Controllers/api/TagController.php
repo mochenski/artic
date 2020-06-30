@@ -47,6 +47,24 @@ class TagController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function show($name)
+    {
+        $tag = Tag::where('name', $name)->first();
+        $tag->articles;
+
+        if (!$tag)
+            return response([
+                'message' => "Tag {$name} not found"
+            ], 400);
+
+        return response($tag, 200);
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
