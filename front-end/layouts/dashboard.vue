@@ -3,14 +3,15 @@
     <v-navigation-drawer
       v-model="drawer"
       class="bg-gradient"
-      :expand-on-hover="expandOnHover"
-      :mini-variant="miniVariant"
-      absolute
-      app
+      expand-on-hover
+      mini-variant
       dark
+      permanent
+      fixed
+      app
     >
       <v-list dense nav rounded class="py-0">
-        <v-list-item two-line :class="miniVariant && 'px-0'">
+        <v-list-item two-line class="px-0">
           <v-list-item-avatar>
             <img src="https://randomuser.me/api/portraits/men/81.jpg" />
           </v-list-item-avatar>
@@ -49,7 +50,7 @@
         </v-list>
       </template>
     </v-navigation-drawer>
-    <v-content>
+    <v-content class="bg-light">
       <nuxt />
     </v-content>
   </v-app>
@@ -65,9 +66,7 @@ export default {
         { title: 'Photos', icon: 'mdi-image' },
         { title: 'About', icon: 'mdi-help-box' }
       ],
-      color: 'primary',
-      miniVariant: true,
-      expandOnHover: true
+      color: 'primary'
     }
   },
 
@@ -79,11 +78,16 @@ export default {
 
 <style>
 .bg-dashboard {
-  padding: 48px;
+  background: rgb(58, 180, 173);
+  background: linear-gradient(
+    117deg,
+    rgba(58, 180, 173, 1) 0%,
+    rgba(29, 253, 220, 0.9724264705882353) 50%,
+    rgba(69, 137, 252, 1) 100%
+  );
 }
 
 .bg-gradient-2 {
-  margin-top: -300px;
   background: rgb(58, 180, 173);
   background: linear-gradient(
     117deg,

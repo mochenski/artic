@@ -1,7 +1,7 @@
 <template>
-  <v-container fill-height fluid>
-    <v-row align="center" justify="center">
-      <h1>Welcome {{ $auth.user.name }}</h1>
+  <v-container class="fill-height" height="100%">
+    <v-row>
+      <h1>Welcome Jon Doe</h1>
     </v-row>
   </v-container>
 </template>
@@ -11,3 +11,4 @@ export default {
   layout: 'dashboard'
 }
 </script>
+

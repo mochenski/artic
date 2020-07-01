@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="d-inline-flex flex-column my-auto align-center justify-space-around"
-  >
+  <div>
     <h1>Welcome to Landing page</h1>
     <div class="pa-10">
       <v-btn v-if="$auth.loggedIn" @click="$auth.logout()">Logout</v-btn>
@@ -13,10 +11,7 @@
 </template>
 
 <script>
-import Clients from '../components/passport/Clients'
 export default {
-  components: {
-    Clients
-  }
+  layout: 'articles'
 }
 </script>
