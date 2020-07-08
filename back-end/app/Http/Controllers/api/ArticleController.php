@@ -18,7 +18,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return response(Article::with('tags')->get());
+        return response(Article::with('tags', 'author')->get());
     }
 
     /**

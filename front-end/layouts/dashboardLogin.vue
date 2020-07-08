@@ -1,7 +1,16 @@
 <template>
-  <v-app>
-    <nuxt />
-    <svg class="bg-gradient" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+  <v-app class="bg-trasparent">
+    <svg class="bg-gradient svg-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path
+        fill="#fff"
+        fill-opacity="1"
+        d="M0,128L60,122.7C120,117,240,107,360,112C480,117,600,139,720,160C840,181,960,203,1080,197.3C1200,192,1320,160,1380,144L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
+      />
+    </svg>
+    <v-main>
+      <nuxt />
+    </v-main>
+    <svg class="bg-gradient svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
       <path
         fill="#fff"
         fill-opacity="1"
@@ -30,5 +39,21 @@ export default {
     rgba(29, 253, 220, 0.9724264705882353) 50%,
     rgba(69, 137, 252, 1) 100%
   );
+}
+
+.bg-trasparent {
+  background-color: rgba(29, 253, 220, 0) !important;
+}
+
+.svg-top {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
+.svg-bottom {
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
 }
 </style>

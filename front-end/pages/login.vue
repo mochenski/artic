@@ -1,5 +1,5 @@
 <template>
-  <div class="d-inline-flex my-auto mt-10 align-center justify-space-around">
+  <v-container fill-height>
     <div>
       <h1>Welcome to Dashboard</h1>
       <div class="pa-10">
@@ -8,7 +8,7 @@
         </nuxt-link>
       </div>
     </div>
-
+    <v-spacer></v-spacer>
     <v-card
       v-click-outside="onClickOutside"
       @click="active = true"
@@ -33,19 +33,16 @@
           @click="!signup ? userLogin() : (signup = false)"
           rounded
           outlined
-          >Login</v-btn
-        >
+        >Login</v-btn>
         <v-btn
           :color="active ? 'undefined' : 'cyan accent-3'"
           @click="signup ? userRegister() : (signup = true)"
           rounded
           outlined
-          >SignUp</v-btn
-        >
+        >SignUp</v-btn>
       </div>
     </v-card>
-    <v-alert v-show="dados" type="error">{{ dados }}</v-alert>
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -109,3 +106,6 @@ export default {
   }
 }
 </script>
+
+<style>
+</style>

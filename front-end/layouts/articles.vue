@@ -1,8 +1,20 @@
 <template>
   <v-app>
-    <v-app-bar class="bg-dashboard" flat app>
+    <v-app-bar class="cyan accent-3" flat app>
       <v-toolbar-title class="text-uppercase">Artic</v-toolbar-title>
+
       <v-spacer></v-spacer>
+      <v-container>
+        <v-tabs background-color="cyan accent-3" v-model="tab" centered dark>
+          <v-tab href="#new">New</v-tab>
+          <v-tab href="#hot">Hot</v-tab>
+          <v-tab href="#all">All time</v-tab>
+          <!-- Call computed ations -->
+          {{ changeTab }}
+        </v-tabs>
+      </v-container>
+      <v-spacer></v-spacer>
+
       <div v-if="$auth.loggedIn">
         <v-btn @click="$auth.logout()">Logout</v-btn>
         <nuxt-link to="/dashboard">
@@ -14,11 +26,6 @@
       </nuxt-link>
     </v-app-bar>
     <v-main>
-      <v-tabs centered grow>
-        <v-tab>New</v-tab>
-        <v-tab>Hot</v-tab>
-        <v-tab>All time</v-tab>
-      </v-tabs>
       <v-content>
         <nuxt />
       </v-content>
@@ -26,14 +33,16 @@
   </v-app>
 </template>
 
-<style>
-.bg-dashboard {
-  background: rgb(58, 180, 173);
-  background: linear-gradient(
-    117deg,
-    rgba(58, 180, 173, 1) 0%,
-    rgba(29, 253, 220, 0.9724264705882353) 50%,
-    rgba(69, 137, 252, 1) 100%
-  );
+<script>
+import { mapMutations } from 'vuex'
+export default {
+  data: () => ({
+    tab: null
+  }),
+  computed: {
+    changeTab: function() {
+      return this.$store.commit('tabs/change', this.tab)
+    }
+  }
 }
-</style>
+</script>
