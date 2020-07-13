@@ -113,6 +113,21 @@ class UserController extends Controller
         ], 200);
     }
 
+    public function articles()
+    {
+        $user = auth()->user();
+
+        if ($user == null)
+            return response([
+                'message' => 'User not found'
+            ], 400);
+
+        return response([
+            'message' => 'User articles',
+            'articles' => $user->articles
+        ], 200);
+    }
+
     public function logout(Request $request)
     {
         if ($request->user() == null)

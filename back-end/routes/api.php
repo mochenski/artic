@@ -34,6 +34,7 @@ Route::middleware('auth:api')->group(function () {
 
     // User
     Route::get('/user', 'api\UserController@user');
+    Route::get('/user/articles', 'api\UserController@articles');
     Route::post('/logout', 'api\UserController@logout');
 
     // Articles
