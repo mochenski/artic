@@ -33,13 +33,15 @@
           @click="!signup ? userLogin() : (signup = false)"
           rounded
           outlined
-        >Login</v-btn>
+          >Login</v-btn
+        >
         <v-btn
           :color="active ? 'undefined' : 'cyan accent-3'"
           @click="signup ? userRegister() : (signup = true)"
           rounded
           outlined
-        >SignUp</v-btn>
+          >SignUp</v-btn
+        >
       </div>
     </v-card>
   </v-container>
@@ -69,7 +71,7 @@ export default {
         })
         .then(() => {
           this.$nuxt.$loading.finish()
-          this.$router.push('/dashboard')
+          this.$router.push('/')
         })
         .catch((err) => {
           this.$nuxt.$loading.finish()
@@ -107,5 +109,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

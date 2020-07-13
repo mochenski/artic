@@ -52,9 +52,9 @@
         </v-list>
       </template>
     </v-navigation-drawer>
-    <v-content class="bg-light">
+    <v-main class="bg-light">
       <nuxt />
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 
