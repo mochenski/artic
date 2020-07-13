@@ -17,22 +17,24 @@
           </v-list-item-avatar>
 
           <v-list-item-content>
-            <v-list-item-title>Jon Doe</v-list-item-title>
-            <v-list-item-subtitle>Admin</v-list-item-subtitle>
+            <v-list-item-title>{{$auth.user.name}}</v-list-item-title>
+            <v-list-item-subtitle v-if="$auth.user.admin == 1">Admin</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
 
-        <v-divider class="py-1"></v-divider>
+        <v-divider class="py-2"></v-divider>
 
-        <v-list-item v-for="item in items" :key="item.title" link>
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
+        <nuxt-link v-for="item in items" :key="item.title" :to="'/'+item.page">
+          <v-list-item link>
+            <v-list-item-icon>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-icon>
 
-          <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </nuxt-link>
       </v-list>
 
       <template v-slot:append>
@@ -58,13 +60,13 @@
 
 <script>
 export default {
+  middleware: 'auth',
   data() {
     return {
       drawer: true,
       items: [
-        { title: 'Dashboard', icon: 'mdi-view-dashboard' },
-        { title: 'Photos', icon: 'mdi-image' },
-        { title: 'About', icon: 'mdi-help-box' }
+        { title: 'Dashboard', icon: 'mdi-view-dashboard', page: 'dashboard' },
+        { title: 'My Articles', icon: 'mdi-image', page: 'dashboard/articles' }
       ],
       color: 'primary'
     }

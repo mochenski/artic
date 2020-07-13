@@ -15,28 +15,7 @@
 
 <script>
 export default {
-  layout: 'dashboard',
-
-  mounted() {
-    this.loadUser()
-  },
-
-  data: () => ({
-    user: Object
-  }),
-
-  methods: {
-    async loadUser() {
-      // this.$axios
-      //   .get('/articles')
-      //   .then((response) => {
-      //     this.articles = response.data
-      //   })
-      //   .catch((err) => {
-      //     console.log(err.response)
-      //   })
-    }
-  }
+  layout: 'dashboard'
 }
 </script>
 
