@@ -1,3 +1,12 @@
+<p align="center">
+ <img src="https://i.ibb.co/5T8HdZM/3321081392-01b3a9fc-ca70-4741-9134-e442d23a1ee8.png" />
+</p>
+
+# Artic
+
+
+
+
 # Dashboard using Laravel and Vue.js
 
 This is a personal project created to study the basics of a Dashboard. I will try to make the code simple and easy to understand.
