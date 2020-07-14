@@ -6,6 +6,7 @@ use App\Article;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -34,7 +35,8 @@ class ArticleController extends Controller
             'slug' => 'required|unique:articles,slug|min:10|max:255',
             'excerpt' => 'required|min:10|max:255',
             'body' => 'required|min:10',
-            'tags' => 'exists:tags,id'
+            'tags' => 'exists:tags,id',
+            'publicated_at' => 'nullable|date'
         ]);
 
         if ($validator->fails())
@@ -52,7 +54,7 @@ class ArticleController extends Controller
                 ]
             ], 400);
 
-        $newArticle = $request->only('slug', 'title', 'excerpt', 'body');
+        $newArticle = $request->only('slug', 'title', 'excerpt', 'body', 'publicated_at');
         $newArticle['user_id'] = $user;
         $article = Article::create($newArticle);
         $article->tags()->attach($request['tags']);
@@ -97,11 +99,13 @@ class ArticleController extends Controller
                 'message' => "Article {$slug} not found"
             ], 400);
 
+
         $validator = Validator::make($request->all(), [
             'title' => 'min:10|max:255',
-            'slug' => 'unique:articles,slug|min:10|max:255',
+            'slug' => 'min:10|max:255|unique:articles,slug,' . $article->id,
             'excerpt' => 'min:10|max:255',
-            'body' => 'min:10'
+            'body' => 'min:10',
+            'publicated_at' => 'date'
         ]);
 
         if ($validator->fails())
@@ -110,7 +114,15 @@ class ArticleController extends Controller
                 'error' => $validator->errors()
             ], 400);
 
-        $newArticle = $request->only('slug', 'title', 'excerpt', 'body');
+        if ($article->publicated_at != null)
+            return response([
+                'message' => 'Failed to update article due to invalid fields',
+                'error' => 'Article has already been published'
+            ], 400);
+
+        $newArticle = $request->only('slug', 'title', 'excerpt', 'body', 'publicated_at');
+        if ($request->only('publicated_at') != null)
+            $newArticle['publicated_at'] = Carbon::now('UTC');
         $article->update($newArticle);
 
         return response([

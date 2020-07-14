@@ -20,7 +20,7 @@ class CreateArticlesTable extends Migration
             $table->string('title');
             $table->string('excerpt');
             $table->text('body');
-            $table->timestamp('publicated_at')->nullable();
+            $table->dateTime('publicated_at')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')
