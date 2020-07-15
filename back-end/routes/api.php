@@ -19,6 +19,9 @@ Route::post('/login', 'api\UserController@login');
 Route::post('/register', 'api\UserController@register');
 
 // Articles
+Route::get('/new', 'api\ArticleController@new');
+Route::get('/hot', 'api\ArticleController@hot');
+Route::get('/all', 'api\ArticleController@all');
 Route::get('/articles', 'api\ArticleController@index');
 Route::get('/articles/{slug}', 'api\ArticleController@show');
 
