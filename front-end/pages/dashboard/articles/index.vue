@@ -96,7 +96,7 @@ export default {
 
     async publishArticle(article, slug) {
       this.loading = true
-      article.publicated_at = this.$moment().format()
+      article.publicated_at = this.$moment().format('YYYY-MM-DD HH:mm:ss')
       console.log(article)
       await this.$axios
         .put(`articles/${slug}`, article)
