@@ -4,8 +4,10 @@
       <v-list-item-avatar color="grey">
         <img src="https://randomuser.me/api/portraits/men/81.jpg" />
       </v-list-item-avatar>
-      <v-list-item-content>
-        <v-list-item-title class="headline">{{ articleTitle }}</v-list-item-title>
+      <v-list-item-content class="color">
+        <nuxt-link :to="'/articles/'+articleSlug">
+          <v-list-item-title class="headline">{{ articleTitle }}</v-list-item-title>
+        </nuxt-link>
         <v-list-item-subtitle>by {{ articleAuthor }}</v-list-item-subtitle>
       </v-list-item-content>
     </v-list-item>
@@ -23,6 +25,7 @@
 <script>
 export default {
   props: {
+    articleSlug: String,
     articleAuthor: String,
     articleTitle: String,
     articleBody: String,
@@ -30,3 +33,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.color a {
+  color: black;
+}
+</style>
