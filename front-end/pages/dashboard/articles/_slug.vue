@@ -13,6 +13,18 @@
             <v-textarea auto-grow outlined rounded label="Excerpt" v-model="article.excerpt"></v-textarea>
             <v-textarea auto-grow outlined rounded label="Body" v-model="article.body"></v-textarea>
 
+            <v-select
+              outlined
+              rounded
+              label="Tags"
+              v-model="article.tags"
+              item-value="id"
+              item-text="name"
+              :items="tags"
+              chips
+              multiple
+            ></v-select>
+
             <v-row class="pa-5">
               <v-btn color="red" @click="loadArticle" dark>Reset</v-btn>
               <v-spacer></v-spacer>
@@ -30,12 +42,14 @@ export default {
   layout: 'dashboard',
 
   data: () => ({
+    loading: false,
     article: Object,
-    loading: false
+    tags: []
   }),
 
   mounted() {
     this.loadArticle()
+    this.loadTags()
   },
 
   computed: {
@@ -50,7 +64,26 @@ export default {
       await this.$axios
         .get(`articles/${this.params.slug}`)
         .then((response) => {
+          console.log(response.data)
           this.article = response.data
+          this.loading = false
+        })
+        .catch((err) => {
+          console.log(err.response)
+          this.loading = false
+        })
+    },
+
+    async loadTags() {
+      console.log('a')
+      this.loading = true
+      await this.$axios
+        .get('tags')
+        .then((response) => {
+          this.tags = response.data.map((tag) => ({
+            id: tag.id,
+            name: tag.name
+          }))
           this.loading = false
         })
         .catch((err) => {
@@ -61,6 +94,7 @@ export default {
 
     async submitArticle() {
       this.loading = true
+      console.log(this.article)
       await this.$axios
         .put(`articles/${this.params.slug}`, this.article)
         .then((response) => {
