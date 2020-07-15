@@ -22,6 +22,21 @@ class ArticleController extends Controller
         return response(Article::with('tags', 'author')->get());
     }
 
+    public function new()
+    {
+        return response(Article::whereNotNull('publicated_at')->orderByRaw('publicated_at DESC')->with('tags', 'author')->take(10)->get());
+    }
+
+    public function hot()
+    {
+        return response(Article::whereNotNull('publicated_at')->orderByRaw('updated_at DESC')->with('tags', 'author')->take(10)->get());
+    }
+
+    public function all()
+    {
+        return response(Article::whereNotNull('publicated_at')->with('tags', 'author')->get());
+    }
+
     /**
      * Store a newly created resource in storage.
      *
