@@ -3,9 +3,32 @@
 </p>
 
 # Artic
+ 
+ > Artic, the perfect place to post your article. 
+ 
+## :bookmark_tabs: Summary
+ - Overview
+ - Technologies
+ - How to run
+ - Conclusion
+ - License
+ 
+## Overview
 
+## Technologies
 
+## Install
 
+## How to run
+
+## Deploy
+
+## Conclusion
+
+## License
+
+## Inspired by
+[Laura Beatris](https://github.com/LauraBeatris)
 
 # Dashboard using Laravel and Vue.js
 
