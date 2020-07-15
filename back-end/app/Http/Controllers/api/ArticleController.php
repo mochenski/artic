@@ -88,8 +88,7 @@ class ArticleController extends Controller
      */
     public function show($slug)
     {
-        $article = Article::where('slug', $slug)->first();
-        $article->tags;
+        $article = Article::where('slug', $slug)->with('tags', 'author')->first();
 
         if (!$article)
             return response([
