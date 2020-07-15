@@ -105,7 +105,7 @@ class ArticleController extends Controller
             'slug' => 'min:10|max:255|unique:articles,slug,' . $article->id,
             'excerpt' => 'min:10|max:255',
             'body' => 'min:10',
-            'publicated_at' => 'date'
+            'publicated_at' => 'nullable|date'
         ]);
 
         if ($validator->fails())
@@ -114,15 +114,17 @@ class ArticleController extends Controller
                 'error' => $validator->errors()
             ], 400);
 
-        if ($article->publicated_at != null)
+        if ($article->publicated_at != null && $article->publicated_at != $request->only('publicated_at')['publicated_at'])
             return response([
                 'message' => 'Failed to update article due to invalid fields',
-                'error' => 'Article has already been published'
+                'error' => 'Article has already been published. Publish date can not be changed',
+                'a' => $article->publicated_at,
+                'r' => $request->only('publicated_at')
             ], 400);
 
         $newArticle = $request->only('slug', 'title', 'excerpt', 'body', 'publicated_at');
-        if ($request->only('publicated_at') != null)
-            $newArticle['publicated_at'] = Carbon::now('UTC');
+        // if ($request->only('publicated_at')['publicated_at'] != null && $article->publicated_at == null)
+        //     $newArticle['publicated_at'] = Carbon::now('UTC');
         $article->update($newArticle);
 
         return response([
