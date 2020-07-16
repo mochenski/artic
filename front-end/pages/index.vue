@@ -10,6 +10,7 @@
           :articleAuthor="article.author.name"
           :articleBody="article.body"
           :articleTags="article.tags"
+          :articleDate="article.publicated_at"
         />
       </v-tab-item>
       <v-tab-item id="hot">
@@ -21,6 +22,7 @@
           :articleAuthor="article.author.name"
           :articleBody="article.body"
           :articleTags="article.tags"
+          :articleDate="article.publicated_at"
         />
       </v-tab-item>
       <v-tab-item id="all">
@@ -32,6 +34,7 @@
           :articleAuthor="article.author.name"
           :articleBody="article.body"
           :articleTags="article.tags"
+          :articleDate="article.publicated_at"
         />
       </v-tab-item>
     </v-tabs-items>

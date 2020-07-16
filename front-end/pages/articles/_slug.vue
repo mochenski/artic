@@ -7,6 +7,7 @@
         :articleAuthor="article.author.name"
         :articleBody="article.body"
         :articleTags="article.tags"
+        :articleDate="article.publicated_at"
       />
     </v-row>
   </v-container>

@@ -1,5 +1,5 @@
 <template>
-  <v-card class="my-16 pa-10" shaped elevation="7">
+  <v-card class="my-16" width="100%" shaped elevation="7">
     <v-list-item>
       <v-list-item-avatar color="grey">
         <img src="https://randomuser.me/api/portraits/men/81.jpg" />
@@ -10,13 +10,16 @@
         </nuxt-link>
         <v-list-item-subtitle>by {{ articleAuthor }}</v-list-item-subtitle>
       </v-list-item-content>
+      <v-list-item-action>
+        <v-list-item-action-text>Published at {{ $moment(articleDate).format('DD/MM/YYYY') }}</v-list-item-action-text>
+      </v-list-item-action>
     </v-list-item>
 
-    <!-- <v-img src="https://cdn.vuetifyjs.com/images/cards/store.jpg"></v-img> -->
+    <v-img src="https://cdn.vuetifyjs.com/images/cards/store.jpg"></v-img>
 
-    <v-card-text class="text-justify">{{ articleBody }}</v-card-text>
+    <v-card-text class="text-justify pa-10">{{ articleBody }}</v-card-text>
 
-    <v-card-actions>
+    <v-card-actions class="px-10">
       <v-btn v-for="tag in articleTags" :key="tag.id" color="orange" text>{{ tag.name }}</v-btn>
     </v-card-actions>
   </v-card>
@@ -29,7 +32,8 @@ export default {
     articleAuthor: String,
     articleTitle: String,
     articleBody: String,
-    articleTags: Array
+    articleTags: Array,
+    articleDate: Date
   }
 }
 </script>
