@@ -8,18 +8,42 @@
  
 ## :bookmark_tabs: Summary
  - Overview
+   - Features
  - Technologies
- - How to run
+ - Intall & Run
  - Conclusion
  - License
  
 ## Overview
+It works. Take a look.
+
+(gif 1)
+
+(gif 2)
+
+(gif 3)
+
+Just create your profile and post an article.
+
+### Features
+1. New, Hot and All articles sections
+2. Likes and Comments
+3. Dashborad to manage articles
+4. Customizable profile
+5. Dark mode
 
 ## Technologies
+Artic was created in order to understand the relation between a Rest API and a frontend webpage. To acheive this, I used two different frameworks **Laravel** and **Nuxt.js**.
 
-## Install
+<p align="center">
+<img src="https://miro.medium.com/max/700/1*ApAxz9e9GBaNsIhBXa4w4Q.png" width="30%"/>
+</p>
 
-## How to run
+[**Laravel**](https://laravel.com/ "Laravel - The PHP Framework") - The PHP framework used to create Artic's Rest API.
+
+[**Nuxt.js**](https://nuxtjs.org/ "The intuitive Vue Framework") - The Vue framework used to create Artic's webpage.
+
+## Install & Run
 
 ## Deploy
 
