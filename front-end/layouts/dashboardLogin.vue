@@ -1,6 +1,6 @@
 <template>
   <v-app class="bg-trasparent">
-    <svg class="bg-gradient svg-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <svg class="absolute-img svg-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
       <path
         fill="#fff"
         fill-opacity="1"
@@ -10,7 +10,7 @@
     <v-main>
       <nuxt />
     </v-main>
-    <svg class="bg-gradient svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <svg class="absolute-img svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
       <path
         fill="#fff"
         fill-opacity="1"
@@ -55,5 +55,9 @@ export default {
   position: absolute;
   bottom: 0;
   z-index: -1;
+}
+
+.absolute-img {
+  background: url('/mountain_pixel.png') no-repeat center center;
 }
 </style>
