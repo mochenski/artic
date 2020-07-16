@@ -18,9 +18,9 @@
       </nuxt-link>
     </v-app-bar>
     <v-main>
-      <v-content>
+      <v-main>
         <nuxt />
-      </v-content>
+      </v-main>
     </v-main>
   </v-app>
 </template>

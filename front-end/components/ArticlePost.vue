@@ -1,5 +1,5 @@
 <template>
-  <v-card class="my-16" width="100%" shaped elevation="7">
+  <v-card class="my-16 rounded-xl" width="100%" elevation="5">
     <v-list-item>
       <v-list-item-avatar color="grey">
         <img src="https://randomuser.me/api/portraits/men/81.jpg" />
@@ -17,10 +17,12 @@
 
     <v-img src="https://cdn.vuetifyjs.com/images/cards/store.jpg"></v-img>
 
-    <v-card-text class="text-justify pa-10">{{ articleBody }}</v-card-text>
+    <v-card-text class="text-justify pa-10">{{ articleText }}</v-card-text>
 
     <v-card-actions class="px-10">
-      <v-btn v-for="tag in articleTags" :key="tag.id" color="orange" text>{{ tag.name }}</v-btn>
+      <v-btn v-for="tag in articleTags" :key="tag.id" color="orange" text>
+        <nuxt-link :to="'/tags/'+tag.name">{{ tag.name }}</nuxt-link>
+      </v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -31,9 +33,9 @@ export default {
     articleSlug: String,
     articleAuthor: String,
     articleTitle: String,
-    articleBody: String,
+    articleText: String,
     articleTags: Array,
-    articleDate: Date
+    articleDate: String
   }
 }
 </script>

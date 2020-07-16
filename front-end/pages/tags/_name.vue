@@ -2,10 +2,12 @@
   <v-container>
     <v-row>
       <article-post
+        v-for="article in articles"
+        :key="article.id"
         :articleTitle="article.title"
         :articleSlug="article.slug"
         :articleAuthor="article.author.name"
-        :articleText="article.body"
+        :articleText="article.excerpt"
         :articleTags="article.tags"
         :articleDate="article.publicated_at"
       />
@@ -23,14 +25,12 @@ export default {
   },
 
   mounted() {
-    this.loadArticle()
+    this.loadArticles()
   },
 
   data: () => ({
     loading: false,
-    article: {
-      author: {} // defined author because :artucleAuthor won't accept undefined
-    }
+    articles: {}
   }),
 
   computed: {
@@ -40,13 +40,13 @@ export default {
   },
 
   methods: {
-    async loadArticle() {
+    async loadArticles() {
       this.loading = true
       await this.$axios
-        .get(`articles/${this.params.slug}`)
+        .get(`tags/${this.params.name}`)
         .then((response) => {
           console.log(response.data)
-          this.article = response.data
+          this.articles = response.data
           this.loading = false
         })
         .catch((err) => {

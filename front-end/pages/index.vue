@@ -8,7 +8,7 @@
           :articleTitle="article.title"
           :articleSlug="article.slug"
           :articleAuthor="article.author.name"
-          :articleBody="article.body"
+          :articleText="article.excerpt"
           :articleTags="article.tags"
           :articleDate="article.publicated_at"
         />
@@ -20,7 +20,7 @@
           :articleTitle="article.title"
           :articleSlug="article.slug"
           :articleAuthor="article.author.name"
-          :articleBody="article.body"
+          :articleText="article.excerpt"
           :articleTags="article.tags"
           :articleDate="article.publicated_at"
         />
@@ -32,7 +32,7 @@
           :articleTitle="article.title"
           :articleSlug="article.slug"
           :articleAuthor="article.author.name"
-          :articleBody="article.body"
+          :articleText="article.excerpt"
           :articleTags="article.tags"
           :articleDate="article.publicated_at"
         />
