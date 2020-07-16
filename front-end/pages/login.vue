@@ -92,7 +92,7 @@ export default {
         })
         .then(() => {
           this.$nuxt.$loading.finish()
-          this.$router.push('/')
+          this.$router.push('/artic')
         })
         .catch((err) => {
           this.snackbarShow(err.response.data.message)
@@ -115,7 +115,7 @@ export default {
               data: this.login
             })
             .then(() => {
-              this.$router.push('/dashboard')
+              this.$router.push('/artic')
             })
         })
         .catch((err) => {

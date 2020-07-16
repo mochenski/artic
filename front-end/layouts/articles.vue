@@ -1,7 +1,9 @@
 <template>
   <v-app>
     <v-app-bar class="cyan accent-3" flat app>
-      <v-toolbar-title class="text-uppercase">Artic</v-toolbar-title>
+      <nuxt-link to="/">
+        <v-toolbar-title class="text-uppercase">Artic</v-toolbar-title>
+      </nuxt-link>
 
       <v-spacer></v-spacer>
       <v-container>
