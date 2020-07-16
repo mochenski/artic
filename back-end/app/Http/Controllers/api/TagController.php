@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Tag;
+use App\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -53,15 +54,21 @@ class TagController extends Controller
      */
     public function show($name)
     {
-        $tag = Tag::where('name', $name)->first();
-        $tag->articles;
+        $tag = Tag::where('name', $name)->with('articles')->first();
+
+        $articles = [];
+        foreach ($tag->articles as $article) {
+            $articles[] = Article::where('id', $article->id)->whereNotNull('publicated_at')->with('author', 'tags')->first();
+        }
+
+
 
         if (!$tag)
             return response([
                 'message' => "Tag {$name} not found"
             ], 400);
 
-        return response($tag, 200);
+        return response(array_filter($articles), 200);
     }
 
     /**
