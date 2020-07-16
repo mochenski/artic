@@ -27,10 +27,8 @@
         <v-btn>Login</v-btn>
       </nuxt-link>
     </v-app-bar>
-    <v-main>
-      <v-main>
-        <nuxt />
-      </v-main>
+    <v-main class="absolute-img-2">
+      <nuxt />
     </v-main>
   </v-app>
 </template>
@@ -48,3 +46,9 @@ export default {
   }
 }
 </script>
+
+<style >
+.absolute-img-2 {
+  background: url('/mountain_pixel.png') repeat fixed center;
+}
+</style>

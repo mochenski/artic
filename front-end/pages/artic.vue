@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-tabs-items v-model="tabs">
+    <v-tabs-items class="no-bg" v-model="tabs">
       <v-tab-item id="new">
         <article-post
           v-for="article in newArticles"
@@ -101,3 +101,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.no-bg {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+</style>
