@@ -1,8 +1,8 @@
 <template>
   <v-app>
-    <v-app-bar class="cyan accent-3 color" flat app>
+    <v-app-bar class="white color" app>
       <nuxt-link to="/artic">
-        <v-toolbar-title class="text-uppercase">Artic</v-toolbar-title>
+        <v-img src="/logo.png" width="13%"></v-img>
       </nuxt-link>
 
       <v-spacer></v-spacer>
@@ -18,7 +18,7 @@
       </nuxt-link>
     </v-app-bar>
     <v-main>
-      <v-main>
+      <v-main class="absolute-img-3">
         <nuxt />
       </v-main>
     </v-main>
@@ -34,5 +34,9 @@ export default {
 <style>
 .color a {
   color: black;
+}
+
+.absolute-img-3 {
+  background: url('/mountain_pixel_opacity.png') repeat fixed center;
 }
 </style>
