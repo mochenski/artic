@@ -15,7 +15,7 @@
       </v-list-item-action>
     </v-list-item>
 
-    <v-img src="https://cdn.vuetifyjs.com/images/cards/store.jpg"></v-img>
+    <v-img v-if="articleImg" src="https://cdn.vuetifyjs.com/images/cards/store.jpg"></v-img>
 
     <v-card-text class="text-justify pa-10">{{ articleText }}</v-card-text>
 
@@ -35,7 +35,11 @@ export default {
     articleTitle: String,
     articleText: String,
     articleTags: Array,
-    articleDate: String
+    articleDate: String,
+    articleImg: {
+      type: Boolean,
+      default: true
+    }
   }
 }
 </script>
