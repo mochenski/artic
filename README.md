@@ -6,14 +6,6 @@
  
  > Artic, the perfect place to post your article. 
  
-## :bookmark_tabs: Summary
- - Overview
-   - Features
- - Technologies
- - Intall & Run
- - Conclusion
- - License
- 
 ## Overview
 It works. Take a look.
 
@@ -27,13 +19,11 @@ Just create your profile and post an article.
 
 ### Features
 1. New, Hot and All articles sections
-2. Likes and Comments
-3. Dashborad to manage articles
-4. Customizable profile
-5. Dark mode
+2. Dashborad to manage articles
+3. Article subjects
 
 ## Technologies
-Artic was created in order to understand the relation between a Rest API and a frontend webpage. To acheive this, I used two different frameworks **Laravel** and **Nuxt.js**.
+Artic was created in order to understand the relation between a Rest API and a frontend webpage. To acheive this, two different frameworks, **Laravel** and **Nuxt.js**, were used.
 
 <p align="center">
 <img src="https://miro.medium.com/max/700/1*ApAxz9e9GBaNsIhBXa4w4Q.png" width="30%"/>
@@ -45,7 +35,11 @@ Artic was created in order to understand the relation between a Rest API and a f
 
 ## Install & Run
 
-## Deploy
+### Front-end
+
+
+### Back-end
+
 
 ## Conclusion
 
@@ -54,7 +48,7 @@ Artic was created in order to understand the relation between a Rest API and a f
 ## Inspired by
 [Laura Beatris](https://github.com/LauraBeatris)
 
-# Dashboard using Laravel and Vue.js
+# Dashboard using Laravel and Nuxt.js
 
 This is a personal project created to study the basics of a Dashboard. I will try to make the code simple and easy to understand.
 
