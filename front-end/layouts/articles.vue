@@ -1,11 +1,13 @@
 <template>
   <v-app>
-    <v-app-bar class="cyan accent-3" flat app>
-      <v-toolbar-title class="text-uppercase">Artic</v-toolbar-title>
+    <v-app-bar class="white" flat app>
+      <nuxt-link to="/">
+        <v-img src="/logo.png" width="13%"></v-img>
+      </nuxt-link>
 
       <v-spacer></v-spacer>
       <v-container>
-        <v-tabs background-color="cyan accent-3" v-model="tab" centered dark>
+        <v-tabs background-color="white " v-model="tab" centered>
           <v-tab href="#new">New</v-tab>
           <v-tab href="#hot">Hot</v-tab>
           <v-tab href="#all">All time</v-tab>
@@ -25,10 +27,8 @@
         <v-btn>Login</v-btn>
       </nuxt-link>
     </v-app-bar>
-    <v-main>
-      <v-content>
-        <nuxt />
-      </v-content>
+    <v-main class="absolute-img-2">
+      <nuxt />
     </v-main>
   </v-app>
 </template>
@@ -46,3 +46,9 @@ export default {
   }
 }
 </script>
+
+<style >
+.absolute-img-2 {
+  background: url('/mountain_pixel_opacity.png') repeat fixed center;
+}
+</style>
